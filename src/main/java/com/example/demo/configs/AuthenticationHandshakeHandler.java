@@ -200,7 +200,7 @@ public class AuthenticationHandshakeHandler implements HandshakeHandler, Lifecyc
         List<WebSocketExtension> requested = headers.getSecWebSocketExtensions();
         List<WebSocketExtension> supported = this.requestUpgradeStrategy.getSupportedExtensions(request);
         List<WebSocketExtension> extensions = this.filterRequestedExtensions(request, requested, supported);
-        Principal user = null;
+        Principal user;
         try {
             user = this.determineUser(request, wsHandler, attributes);
         } catch (Exception e) {
